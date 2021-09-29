@@ -25,8 +25,8 @@ using namespace std;
 class CSocketHelper
 {
 public:
-	CSocketHelper() {};
-	virtual ~CSocketHelper() {};
+	CSocketHelper() = default;
+	virtual ~CSocketHelper() = default;
 
 protected:
 	WSADATA m_wsaData; // info about the Windows Sockets implementation
@@ -37,32 +37,31 @@ protected:
 class CServerSocketHelper : private CSocketHelper
 {
 public:
-	CServerSocketHelper();
+	CServerSocketHelper() = default;
 	~CServerSocketHelper();
 
 	int Init();
 	int Listen();
 	bool Accept();
-	int Receive(string& sReceived);
-	int Send(const string& sMsg, const int icNumOfBytes);
+	int Receive(string& sReceived, const int iMaxRetryNum = 5);
+	int Send(const string& sMsg, const int icNumOfBytes, const int iMaxRetryNum = 5);
 	int Shutdown();
 
 private:
 	SOCKET m_listenerSocket = INVALID_SOCKET;
 	SOCKET m_clientSocket = INVALID_SOCKET;
-	int m_iSendResult;
 };
 
 class CClientSocketHelper : private CSocketHelper
 {
 public:
-	CClientSocketHelper();
+	CClientSocketHelper() = default;
 	~CClientSocketHelper();
 
-	int Init(const char* szcIpAdr); // TO DO change type 
+	int Init(const std::string& scIpAdr);
 	int Connect();
-	int Send(const string& sMsg);
-	void Receive();	
+	int Send(const string& sMsg, const int iMaxRetryNum = 5);
+	void Receive(const int iMaxRetryNum = 5);
 	int Shutdown();
 
 private:
