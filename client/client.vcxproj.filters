@@ -30,6 +30,9 @@
     <ClCompile Include="..\shared\socket_utils\socket_helper_wnd.cpp">
       <Filter>shared\socket_utils</Filter>
     </ClCompile>
+    <ClCompile Include="commands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\shared\logger\logger.h">
@@ -37,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="..\shared\socket_utils\socket_helper_wnd.h">
       <Filter>shared\socket_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="commands.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

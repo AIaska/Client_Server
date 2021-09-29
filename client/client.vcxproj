@@ -146,11 +146,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\shared\socket_utils\socket_helper_wnd.cpp" />
+    <ClCompile Include="commands.cpp" />
     <ClCompile Include="source_client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\shared\logger\logger.h" />
     <ClInclude Include="..\shared\socket_utils\socket_helper_wnd.h" />
+    <ClInclude Include="commands.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
